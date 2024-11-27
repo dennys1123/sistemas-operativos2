@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservaciones - Restaurante Gourmet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <nav>
+            <ul>
+                <li><a href="Inicio.html"><strong>INICIO</strong></a></li>
+                <li><a href="index2.html"><strong>MENU</strong></a></li>
+                <li><a href="Reservas.html"><strong>RESERVACIONES</strong></a></li>
+                
+            </ul>
+        </nav>
+    </header>
+ 
+    <section id="reservas">
+        <h2>HAZ TU RESERVACION</h2>
+        <form id="form-reservacion">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" required>
+ 
+            <label for="telefono">Teléfono de Contacto:</label>
+            <input type="tel" id="telefono" required>
+ 
+            <label for="fecha">Fecha de la Reservación:</label>
+            <input type="date" id="fecha" required>
+ 
+            <label for="hora">Hora de la Reservación:</label>
+            <input type="time" id="hora" required>
+ 
+            <label for="personas">Número de Personas:</label>
+            <input type="number" id="personas" min="1" required>
+ 
+            <label for="mensaje">Mensaje Especial (opcional):</label>
+            <textarea id="mensaje"></textarea>
+ 
+            <button type="submit">Realizar Reservación</button>
+        </form>
+ 
+        <div id="confirmacion-reserva" style="display: none;">
+            <p>¡Gracias por tu reservación! Hemos recibido tu solicitud. Te esperamos en nuestro restaurante.</p>
+        </div>
+ 
+        <h3>Reservaciones Realizadas</h3>
+        <div id="lista-reservas">
+            <!-- Aquí se mostrarán las reservas realizadas -->
+        </div>
+    </section>
+ 
+    <footer>
+        <p>&copy; 2024 Restaurante Gourmet. Todos los derechos reservados.</p>
+    </footer>
+
+
+
+
+
+
+
+
+ 
+    <script>
+        // Función para manejar la reserva
+        document.getElementById("form-reservacion").addEventListen("submit", function(e) {
+            e.preventDefault();  // Evita que el formulario se envíe de la manera tradicional
+ 
+            // Obtener los datos del formulario
+            const nombre = document.getElementById("nombre").value;
+            const telefono = document.getElementById("telefono").value;
+            const fecha = document.getElementById("fecha").value;
+            const hora = document.getElementById("hora").value;
+            const personas = document.getElementById("personas").value;
+            const mensaje = document.getElementById("mensaje").value;
+ 
+            // Crear un objeto de reserva
+            const reserva = {
+                nombre: nombre,
+                telefono: telefono,
+                fecha: fecha,
+                hora: hora,
+                personas: personas,
+                mensaje: mensaje
+            };
+ 
+            // Obtener las reservas actuales desde el almacenamiento local
+            let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+ 
+            // Añadir la nueva reserva a la lista
+            reservas.push(reserva);
+ 
+            // Guardar la lista actualizada de reservas en el almacenamiento local
+            localStorage.setItem("reservas", JSON.stringify(reservas));
+ 
+            // Mostrar la confirmación de la reserva
+            document.getElementById("form-reservacion").reset();  // Limpiar el formulario
+            document.getElementById("confirmacion-reserva").style.display = "block";  // Mostrar confirmación
+ 
+            // Mostrar las reservas realizadas
+            mostrarReservas();
+        });
+ 
+        // Función para mostrar las reservas
+        function mostrarReservas() {
+            const listaReservas = document.getElementById("lista-reservas");
+            listaReservas.innerHTML = '';  // Limpiar la lista antes de mostrar las nuevas reservas
+ 
+            // Obtener las reservas desde el almacenamiento local
+            let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+ 
+            // Si hay reservas, mostrarlas
+            if (reservas.length > 0) {
+                reservas.forEach((reserva, index) => {
+                    const divReserva = document.createElement("div");
+                    divReserva.classList.add("reserva");
+ 
+                    divReserva.innerHTML = `
+                        <p><strong>Reserva #${index + 1}</strong></p>
+                        <p><strong>Nombre:</strong> ${reserva.nombre}</p>
+                        <p><strong>Teléfono:</strong> ${reserva.telefono}</p>
+                        <p><strong>Fecha:</strong> ${reserva.fecha}</p>
+                        <p><strong>Hora:</strong> ${reserva.hora}</p>
+                        <p><strong>Número de personas:</strong> ${reserva.personas}</p>
+                        <p><strong>Mensaje:</strong> ${reserva.mensaje || 'No hay mensaje especial'}</p>
+                        <hr>
+                    `;
+ 
+                    listaReservas.appendChild(divReserva);
+                });
+            } else {
+                listaReservas.innerHTML = '<p>No hay reservas aún.</p>';
+            }
+        }
+ 
+        // Mostrar las reservas al cargar la página
+        window.onload = mostrarReservas;
+    </script>
+</body>
+
+
+</section>
+
+<p style="text-align: center;"><strong>@RICARDO TRINO</strong></p>
+<p style="text-align: center;"><strong>@ADEMAR GONZALES</strong></p>
+<p style="text-align: center;"><strong>@ISRAEL CUBA</strong></p>
+<p style="text-align: center;"><strong>@DENNYS LOPEZ</strong></p>
+<p style="text-align: center;"><strong>Bolivia</strong></p>
+<p style="text-align: center;"><strong>La PAZ</strong></p>
+<p style="text-align: center;"><strong>TELEFONOS DE REFERENCIA</strong></p>
+<p style="text-align: center;"><strong>65982123#</strong></p>
+
+
+<body>
+    <!-- Botón de texto para Facebook -->
+    <a href="https://www.facebook.com/profile.php?id=100063882930402" class="btn-facebook" target="_blank">Visítanos en FACEBOOK</a>
+
+    <!-- Otros contenidos de la página -->
+</body>
+<a href="https://www.facebook.com/profile.php?id=100063882930402" class="btn-facebook" target="_blank">Visítanos en INSTAGRAM</a>
+
+<a href="https://www.facebook.com/profile.php?id=100063882930402" class="btn-facebook" target="_blank">Visítanos en YOUTUBE</a>
+</section>
+
+
+
+</html>

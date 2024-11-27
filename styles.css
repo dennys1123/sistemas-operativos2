@@ -1,0 +1,161 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #d5b39c;
+    color: #514848;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #dcc6c6;
+    color: rgb(24, 23, 23);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: rgb(26, 25, 25);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('https://media.licdn.com/dms/image/v2/D4D12AQGgFqVawtZPVA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1681898758956?e=2147483647&v=beta&t=q5tYviNLCDEN0vA4H-PrYwr30an7W1A82rce2k5-YcI');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(249, 246, 246);
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 30px;
+}
+
+/* Sección de Menú */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #161414;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.menu-item {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item h3 {
+    font-size: 24px;
+    margin: 15px 0;
+    color: #f39c12;
+}
+
+.menu-item p {
+    font-size: 16px;
+    padding: 0 15px 15px;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: rgb(239, 233, 233);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Clase para centrar y agrandar la imagen */
+.center-image {
+    display: flex;
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center;      /* Centra verticalmente */
+    height: 100vh;            /* Altura completa de la pantalla */
+}
+
+/* Estilo para agrandar la imagen */
+.center-image img {
+    width: 100%;               /* Ajusta el ancho de la imagen al 80% del viewport */
+    height: center;             /* Mantiene las proporciones de la imagen */
+    max-height: 1000px;        /* Ajusta la altura máxima para que no sea demasiado alta */
+}
+
+
+
+
+.btn-facebook {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1877f2;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.btn-facebook:hover {
+    background-color: #b85915; /* Color más oscuro al pasar el mouse */
+}
